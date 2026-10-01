@@ -55,7 +55,7 @@ jobs:
           SMTP_PASSWORD: ${{ secrets.SMTP_PASSWORD }}
           EMAIL_TO: ${{ secrets.EMAIL_TO }}
           CURRENT_DATE: "2026-11-16"
-        run: python appointment_watcher.py --once
+        run: python appointment_watcher.py 
 
       - name: Save state
         if: always()
