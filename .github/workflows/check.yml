@@ -47,6 +47,7 @@ jobs:
           restore-keys: state-
 
       - name: Check for earlier appointments
+        timeout-minutes: 4
         env:
           SMTP_HOST: smtp.gmail.com
           SMTP_PORT: "587"
@@ -54,7 +55,7 @@ jobs:
           SMTP_PASSWORD: ${{ secrets.SMTP_PASSWORD }}
           EMAIL_TO: ${{ secrets.EMAIL_TO }}
           CURRENT_DATE: "2026-11-16"
-        run: python appointment_watcher.py 
+        run: python appointment_watcher.py --once
 
       - name: Save state
         if: always()
