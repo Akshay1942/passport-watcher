@@ -279,9 +279,12 @@ def main():
                     except Exception as mail_err:
                         log.error("Could not send warning email: %s", mail_err)
             if args.once:
-                break
+                # Hard-exit: Playwright's shutdown can hang on CI runners.
+                logging.shutdown()
+                sys.stdout.flush()
+                sys.stderr.flush()
+                os._exit(exit_code)
             time.sleep(INTERVAL)
-    sys.exit(exit_code)
 
 
 if __name__ == "__main__":
