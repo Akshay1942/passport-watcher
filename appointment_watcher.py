@@ -42,7 +42,7 @@ from playwright.sync_api import sync_playwright
 
 URL = "https://www.cgihamburg.gov.in/get-appointment"
 SERVICE_LABEL = "Passport Services"
-CURRENT = date.fromisoformat(os.getenv("CURRENT_DATE", "2026-11-16"))
+CURRENT = date.fromisoformat(os.getenv("CURRENT_DATE", "2026-11-17"))
 INTERVAL = int(os.getenv("INTERVAL_MIN", "10")) * 60
 MAX_MONTHS_TO_SCAN = 4
 FAILURES_BEFORE_WARNING = 6  # ~1 hour of consecutive errors
